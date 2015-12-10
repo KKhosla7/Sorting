@@ -11,18 +11,19 @@ import static org.junit.Assert.*;
  */
 public class InsertionSortTest {
 
+    private InsertionSort insertionSort;
+
     @Before
     public void setUp() throws Exception {
-
-    }
-
-    @After
-    public void tearDown() throws Exception {
-
+        int[] elements = new int[] {5, 2, 4, 6, 1, 3};
+        insertionSort = new InsertionSort(elements);
     }
 
     @Test
-    public void testSort() throws Exception {
-
+    public void sortArray_insertionSort() {
+        int[] expectedElements = new int[] {1, 2, 3, 4, 5, 6};
+        int[] sourceElements = insertionSort.getElements();
+        insertionSort.insertionSort(sourceElements);
+        assertArrayEquals("Arrays", expectedElements, sourceElements);
     }
 }

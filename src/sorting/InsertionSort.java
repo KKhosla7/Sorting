@@ -6,15 +6,12 @@ import java.util.Arrays;
  * File Author Karan on 12/10/15.
  */
 public class InsertionSort {
-    public static void main(String[] args) {
-        int[] elements = new int[] {5, 2, 4, 6, 1, 3};
-
-        System.out.println("Array(Unsorted):\t\t " + Arrays.toString(elements));
-        sort(elements);
-        System.out.println("Array(Sorted):\t\t\t " + Arrays.toString(elements));
+    private int[] elements;
+    public InsertionSort(int[] elements) {
+        this.elements = elements;
     }
 
-    public static void sort(int[] unsortedArray) {
+    public void insertionSort(int[] elements) {
         /**
          *
          * @param array
@@ -32,15 +29,19 @@ public class InsertionSort {
          */
         int i;
         int key;
-        for (int j = 1; j < unsortedArray.length; j++) {
-            key = unsortedArray[j];
+        for (int j = 1; j < elements.length; j++) {
+            key = elements[j];
             // Insert unsortedArray[j] into the sorted sequence unsortedArray[1..j - 1]
             i = j - 1;
-            while (i >= 0 && unsortedArray[i] > key) {
-                unsortedArray[i + 1] = unsortedArray[i];
+            while (i >= 0 && elements[i] > key) {
+                elements[i + 1] = elements[i];
                 i = i - 1;
             }
-            unsortedArray[i + 1] = key;
+            elements[i + 1] = key;
         }
+    }
+
+    public int[] getElements() {
+        return elements;
     }
 }
